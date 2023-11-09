@@ -1,0 +1,29 @@
+<div class="form-container">
+  <form>
+    <div class="title-container">
+      <h2>Shifts Manager</h2>
+      <p>Hospitais</p>
+    </div>
+    <div class="input-container">
+      <div class="input-group">
+        <label for="cnpj">CNPJ</label>
+        <input type="text" id="cnpj" mask="00.000.000/0000-00">
+      </div>
+      <div class="input-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password">
+      </div>
+    </div>
+    <button type="button" smg-button routerLink="/hospital/dashboard">Entrar</button>
+    <p>Ainda não possui uma conta? <a class="link" routerLink="/hospital/register">Cadastre-se</a></p>
+    <div class="divider">
+      <div></div>
+      <p>ou</p>
+      <div></div>
+    </div>
+    <a smg-button variant="tonal" routerLink="/doctor/login">Faça login como Médico</a>
+  </form>
+</div>
+<div class="illustration">
+  <img src="assets/images/login-hospital.svg" alt="Ilustração com um hospital">
+</div>

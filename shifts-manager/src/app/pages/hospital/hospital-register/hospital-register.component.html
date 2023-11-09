@@ -1,0 +1,80 @@
+<div class="form-container">
+  <form>
+    <div class="title-container">
+      <h2>Cadastre-se</h2>
+      <p>Hospitais</p>
+    </div>
+    <div class="input-container row">
+      <div class="input-group">
+        <label for="socialReason">Razão Social</label>
+        <input type="text" id="socialReason">
+      </div>
+      <div class="input-group">
+        <label for="fantasyName">Nome Fantasia</label>
+        <input type="text" id="fantasyName">
+      </div>
+      <div class="input-group">
+        <label for="cnpj">CNPJ</label>
+        <input type="text" id="cnpj" placeholder="00.000.000/0000-00" mask="00.000.000/0000-00">
+      </div>
+    </div>
+    <div class="input-container row">
+      <div class="input-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password">
+      </div>
+      <div class="input-group">
+        <label for="cep">CEP</label>
+        <input type="text" id="cep" placeholder="00000-000" mask="00000-000">
+      </div>
+      <div class="input-group">
+        <label for="state">Estado</label>
+        <select id="state">
+          <option value="rj">Rio de Janeiro</option>
+          <option value="sp">São Paulo</option>
+          <option value="mg">Minas Gerais</option>
+          <option value="es">Espírito Santo</option>
+        </select>
+      </div>
+    </div>
+    <div class="input-container row">
+      <div class="input-group">
+        <label for="city">Cidade</label>
+        <input type="text" id="city">
+      </div>
+      <div class="input-group">
+        <label for="neighbourhood">Bairro</label>
+        <input type="text" id="neighbourhood">
+      </div>
+      <div class="input-group">
+        <label for="email">Endereço</label>
+        <input type="email" id="email">
+      </div>
+    </div>
+    <div class="input-container row">
+      <div class="input-group">
+        <label for="number">Número</label>
+        <input type="text" id="number">
+      </div>
+      <div class="input-group">
+        <label for="phone">Telefone</label>
+        <input type="text" id="phone" placeholder="(00) 0000-0000" mask="(00) 0000-0000">
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email">
+      </div>
+    </div>
+    <button smg-button>Cadastre-se</button>
+    <p>Já possui uma conta? <a class="link" routerLink="/hospital/login">Entrar</a></p>
+    <div class="divider">
+      <div></div>
+      <p>ou</p>
+      <div></div>
+    </div>
+    <a smg-button variant="tonal" routerLink="/doctor/register">Cadastre-se como Médico</a>
+  </form>
+</div>
+<div class="illustration">
+  <img src="assets/images/register-hospital.svg" alt="Ilustração de uma casa com uma lupa na frente">
+</div>

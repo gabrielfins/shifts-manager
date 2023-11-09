@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --green: #00AE5B;
+  --green-dark: #007a3f;
+  --green-darker: #004725;
+  --green-transparent: rgba(0, 174, 91, 0.12);
+  --green-transparent-dark: rgba(0, 174, 91, 0.22);
+  --green-transparent-darker: rgba(0, 174, 91, 0.32);
+  --red: #CE2121;
+  --red-transparent: rgba(206, 33, 33, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+smg-root {
+  flex-shrink: 0;
+  flex: 1;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

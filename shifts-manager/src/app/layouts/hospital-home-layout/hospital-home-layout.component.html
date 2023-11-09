@@ -1,0 +1,18 @@
+<nav>
+  <div>
+    <a class="logo" routerLink="/hospital/dashboard">Shifts Manager</a>
+  </div>
+  <div>
+    <a class="link" routerLink="/hospital/dashboard" routerLinkActive="active">Painel</a>
+    <a class="link" routerLink="/hospital/calendar" routerLinkActive="active">Propostas</a>
+  </div>
+  <div>
+    <button smg-button variant="tonal" type="button" routerLink="/hospital/login">
+      <smg-icon icon="logout" />
+      Sair
+    </button>
+  </div>
+</nav>
+<div class="page-container">
+  <router-outlet />
+</div>

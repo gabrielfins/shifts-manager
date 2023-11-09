@@ -1,0 +1,66 @@
+<div class="illustration">
+  <img src="assets/images/register-doctor.svg" alt="Ilustração com uma pessoa do lado de um celular">
+</div>
+<div class="form-container">
+  <form>
+    <div class="title-container">
+      <h2>Cadastre-se</h2>
+      <p>Médicos</p>
+    </div>
+    <div class="input-container row">
+      <div class="input-group">
+        <label for="name">Nome</label>
+        <input type="text" id="name">
+      </div>
+      <div class="input-group">
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" placeholder="000.000.000-00" mask="000.000.000-00">
+      </div>
+      <div class="input-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password">
+      </div>
+    </div>
+    <div class="input-container row">
+      <div class="input-group">
+        <label for="birthday">Data de nascimento</label>
+        <input type="text" id="birthday" placeholder="00/00/0000" mask="d0/M0/0000">
+      </div>
+      <div class="input-group">
+        <label for="crm">CRM</label>
+        <input type="text" id="crm">
+      </div>
+      <div class="input-group">
+        <label for="specialty">Especialidade</label>
+        <select id="specialty">
+          <option value="0">Cardiologista</option>
+          <option value="2">Dermatologista</option>
+          <option value="1">Neurologista</option>
+          <option value="3">Oncologista</option>
+        </select>
+      </div>
+    </div>
+    <div class="input-container row">
+      <div class="input-group">
+        <label for="phone">Telefone</label>
+        <input type="text" id="phone" placeholder="(00) 0000-0000" mask="(00) 0000-0000">
+      </div>
+      <div class="input-group">
+        <label for="mobile">Celular</label>
+        <input type="text" id="mobile" placeholder="(00) 00000-0000" mask="(00) 00000-0000">
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email">
+      </div>
+    </div>
+    <button smg-button>Cadastre-se</button>
+    <p>Já possui uma conta? <a class="link" routerLink="/doctor/login">Entrar</a></p>
+    <div class="divider">
+      <div></div>
+      <p>ou</p>
+      <div></div>
+    </div>
+    <a smg-button variant="tonal" routerLink="/hospital/register">Cadastre-se como Hospital</a>
+  </form>
+</div>
