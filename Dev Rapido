@@ -1,0 +1,23 @@
+import flet as ft
+
+class ToDo:
+        def__init__(self,page: ft.Page):
+        self.page = page
+        self.page.bgcolor = ft.ft.colors.WHITE
+        self.page.window_width = 350
+        self.page.window_heigh = 450
+        self.page.window_resizable = False
+        self.page.window_always_on_top = True
+        self.page.title = 'ToDo App'
+        self.main_page()
+        
+def main_page(self):
+    import_task = ft.TextField(hint_text = 'Digite aqui')
+    input_bar = ft.flow(
+            controls=[
+                input_task,
+                ft.floatingActionButton(icon=ft.icons.ADO)                
+            ]
+        )
+        self.page.add(input_bar)
+ft.app(target = ToDo)   
