@@ -2,7 +2,7 @@
   <img src="assets/images/register-doctor.svg" alt="Ilustração com uma pessoa do lado de um celular">
 </div>
 <div class="form-container">
-  <form>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="title-container">
       <h2>Cadastre-se</h2>
       <p>Médicos</p>
@@ -10,51 +10,51 @@
     <div class="input-container row">
       <div class="input-group">
         <label for="name">Nome</label>
-        <input type="text" id="name">
+        <input type="text" id="name" formControlName="nome">
       </div>
       <div class="input-group">
         <label for="cpf">CPF</label>
-        <input type="text" id="cpf" placeholder="000.000.000-00" mask="000.000.000-00">
+        <input type="text" id="cpf" placeholder="000.000.000-00" mask="000.000.000-00" formControlName="cpf">
       </div>
       <div class="input-group">
         <label for="password">Senha</label>
-        <input type="password" id="password">
+        <input type="password" id="password" formControlName="senha">
       </div>
     </div>
     <div class="input-container row">
       <div class="input-group">
         <label for="birthday">Data de nascimento</label>
-        <input type="text" id="birthday" placeholder="00/00/0000" mask="d0/M0/0000">
+        <input type="text" id="birthday" placeholder="00/00/0000" mask="d0/M0/0000" formControlName="dataNascimento">
       </div>
       <div class="input-group">
         <label for="crm">CRM</label>
-        <input type="text" id="crm">
+        <input type="text" id="crm" formControlName="crm">
       </div>
       <div class="input-group">
         <label for="specialty">Especialidade</label>
-        <select id="specialty">
-          <option value="0">Cardiologista</option>
-          <option value="2">Dermatologista</option>
-          <option value="1">Neurologista</option>
-          <option value="3">Oncologista</option>
+        <select id="specialty" formControlName="especialidade">
+          <option [value]="0">Cardiologista</option>
+          <option [value]="1">Dermatologista</option>
+          <option [value]="2">Neurologista</option>
+          <option [value]="3">Oncologista</option>
         </select>
       </div>
     </div>
     <div class="input-container row">
       <div class="input-group">
         <label for="phone">Telefone</label>
-        <input type="text" id="phone" placeholder="(00) 0000-0000" mask="(00) 0000-0000">
+        <input type="text" id="phone" placeholder="(00) 0000-0000" mask="(00) 0000-0000" formControlName="telefone">
       </div>
       <div class="input-group">
         <label for="mobile">Celular</label>
-        <input type="text" id="mobile" placeholder="(00) 00000-0000" mask="(00) 00000-0000">
+        <input type="text" id="mobile" placeholder="(00) 00000-0000" mask="(00) 00000-0000" formControlName="celular">
       </div>
       <div class="input-group">
         <label for="email">Email</label>
-        <input type="email" id="email">
+        <input type="email" id="email" formControlName="email">
       </div>
     </div>
-    <button smg-button>Cadastre-se</button>
+    <button smg-button type="submit" [disabled]="registerForm.invalid">Cadastre-se</button>
     <p>Já possui uma conta? <a class="link" routerLink="/doctor/login">Entrar</a></p>
     <div class="divider">
       <div></div>

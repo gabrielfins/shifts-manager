@@ -16,6 +16,7 @@ public class Hospital {
 
     private String nomeFantasia;
 
+    @Column(unique = true)
     private String cnpj;
 
     private String senha;
@@ -30,10 +31,11 @@ public class Hospital {
 
     private String endereco;
 
-    private int numero;
+    private String numero;
 
     private String telefone;
 
+    @Column(unique = true)
     private String email;
 
     public long getId() {
@@ -116,11 +118,11 @@ public class Hospital {
         this.endereco = endereco;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

@@ -2,7 +2,9 @@ package br.com.gabriel.shiftsmanagerapi.controllers;
 
 import br.com.gabriel.shiftsmanagerapi.dto.LoginDTO;
 import br.com.gabriel.shiftsmanagerapi.models.Hospital;
+import br.com.gabriel.shiftsmanagerapi.models.Medico;
 import br.com.gabriel.shiftsmanagerapi.repositories.HospitalRepository;
+import br.com.gabriel.shiftsmanagerapi.services.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,19 +18,26 @@ import java.util.Optional;
 public class HospitalController {
 
     @Autowired
-    private HospitalRepository hospitalRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private HospitalService hospitalService;
 
     @GetMapping
     public ResponseEntity<List<Hospital>> getAll() {
-        return ResponseEntity.ok(this.hospitalRepository.findAll());
+        return ResponseEntity.ok(this.hospitalService.getAll());
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Hospital> getById(@PathVariable long id) {
-        Optional<Hospital> hospital= this.hospitalRepository.findById(id);
+        Optional<Hospital> hospital = this.hospitalService.getById(id);
+        if (hospital.isPresent()) {
+            return ResponseEntity.ok(hospital.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping(path = "email/{email}")
+    public ResponseEntity<Hospital> getById(@PathVariable String email) {
+        Optional<Hospital> hospital= this.hospitalService.getByEmail(email);
         if (hospital.isPresent()) {
             return ResponseEntity.ok(hospital.get());
         } else {
@@ -37,24 +46,26 @@ public class HospitalController {
     }
 
     @PostMapping
-    public ResponseEntity<Hospital> save(@RequestBody Hospital hospital) {
-        return ResponseEntity.ok(this.hospitalRepository.save(hospital));
+    public ResponseEntity<Boolean> save(@RequestBody Hospital hospital) {
+        this.hospitalService.save(hospital);
+        return ResponseEntity.ok(true);
     }
 
     @PostMapping(path = "/login")
     public ResponseEntity<Boolean> login(@RequestBody LoginDTO loginDTO) {
-        Optional<Hospital> hospital =  this.hospitalRepository.findByEmail(loginDTO.getEmail());
-        if (hospital.isEmpty()) {
+        boolean loginSuccessful = this.hospitalService.login(loginDTO);
+        if (loginSuccessful) {
+            return ResponseEntity.ok(true);
+        } else {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(passwordEncoder.matches(loginDTO.getSenha(), hospital.get().getSenha()));
     }
 
     @PutMapping
-    public ResponseEntity<Hospital> update(@RequestBody Hospital hospital) {
-        if (this.hospitalRepository.findById(hospital.getId()).isPresent()) {
-            hospital.setSenha(passwordEncoder.encode(hospital.getSenha()));
-            return ResponseEntity.ok(this.hospitalRepository.save(hospital));
+    public ResponseEntity<Boolean> update(@RequestBody Hospital hospital) {
+        Optional<Hospital> updatedHospital = this.hospitalService.update(hospital);
+        if (updatedHospital.isPresent()) {
+            return ResponseEntity.ok(true);
         } else {
             return ResponseEntity.notFound().build();
         }
@@ -62,7 +73,7 @@ public class HospitalController {
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<String> delete(@PathVariable long id) {
-        this.hospitalRepository.deleteById(id);
+        this.hospitalService.delete(id);
         return ResponseEntity.ok("Usuário removido com sucesso.");
     }
 }

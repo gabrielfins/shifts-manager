@@ -26,9 +26,13 @@ public class MedicoService {
         return this.medicoRepository.findById(id);
     }
 
-    public Medico save(Medico medico) {
+    public Optional<Medico> getByEmail(String email) {
+        return this.medicoRepository.findByEmail(email);
+    }
+
+    public void save(Medico medico) {
         medico.setSenha(passwordEncoder.encode(medico.getSenha()));
-        return this.medicoRepository.save(medico);
+        this.medicoRepository.save(medico);
     }
 
     public Optional<Medico> update(Medico medico) {

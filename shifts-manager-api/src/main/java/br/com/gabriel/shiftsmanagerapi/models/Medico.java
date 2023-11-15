@@ -14,6 +14,7 @@ public class Medico {
 
     private String nome;
 
+    @Column(unique = true)
     private String cpf;
 
     private String senha;
@@ -22,12 +23,13 @@ public class Medico {
 
     private String crm;
 
-    private String especialidade;
+    private Number especialidade;
 
     private String telefone;
 
     private String celular;
 
+    @Column(unique = true)
     private String email;
 
     public long getId() {
@@ -86,11 +88,11 @@ public class Medico {
         this.crm = crm;
     }
 
-    public String getEspecialidade() {
+    public Number getEspecialidade() {
         return especialidade;
     }
 
-    public void setEspecialidade(String especialidade) {
+    public void setEspecialidade(Number especialidade) {
         this.especialidade = especialidade;
     }
 

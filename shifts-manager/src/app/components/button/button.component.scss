@@ -33,4 +33,10 @@
       background-color: var(--green-transparent-darker);
     }
   }
+
+  &[disabled] {
+    background-color: #dfdfdf;
+    color: #8f8f8f;
+    cursor: not-allowed;
+  }
 }

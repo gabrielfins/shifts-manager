@@ -31,9 +31,20 @@ public class MedicoController {
         }
     }
 
+    @GetMapping(path = "/email/{email}")
+    public ResponseEntity<Medico> getByEmail(@PathVariable String email) {
+        Optional<Medico> medico = this.medicoService.getByEmail(email);
+        if (medico.isPresent()) {
+            return ResponseEntity.ok(medico.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping
-    public ResponseEntity<Medico> save(@RequestBody Medico medico) {
-        return ResponseEntity.ok(this.medicoService.save(medico));
+    public ResponseEntity<Boolean> save(@RequestBody Medico medico) {
+        this.medicoService.save(medico);
+        return ResponseEntity.ok(true);
     }
 
     @PostMapping(path = "/login")
@@ -47,10 +58,10 @@ public class MedicoController {
     }
 
     @PutMapping
-    public ResponseEntity<Medico> update(@RequestBody Medico medico) {
+    public ResponseEntity<Boolean> update(@RequestBody Medico medico) {
         Optional<Medico> updatedMedico = this.medicoService.update(medico);
         if (updatedMedico.isPresent()) {
-            return ResponseEntity.ok(updatedMedico.get());
+            return ResponseEntity.ok(true);
         } else {
             return ResponseEntity.notFound().build();
         }
