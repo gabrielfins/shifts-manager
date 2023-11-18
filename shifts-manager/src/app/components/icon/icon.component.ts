@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -13,4 +13,8 @@ import { Component, Input } from '@angular/core';
 })
 export class IconComponent {
   @Input({ required: true }) icon = '';
+
+  @HostBinding('style.font-size.px')
+  @Input()
+  size = 24;
 }

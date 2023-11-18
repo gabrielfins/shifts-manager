@@ -1,5 +1,6 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   padding: 2rem 8rem;
 }
@@ -8,4 +9,43 @@ h2 {
   font-size: 2rem;
   color: #323232;
   font-weight: 500;
+}
+
+.propositions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.proposition {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: .1rem solid #e9e9e9;
+  border-radius: .5rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.info-content {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+
+  & p {
+    font-size: 1.4rem;
+  }
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

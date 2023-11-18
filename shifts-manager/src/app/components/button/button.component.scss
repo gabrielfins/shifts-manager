@@ -21,6 +21,19 @@
     background-color: var(--green-darker);
   }
 
+  &.danger {
+    background-color: var(--red);
+    color: #ffffff;
+
+    &:hover {
+      background-color: var(--red-dark);
+    }
+  
+    &:active {
+      background-color: var(--red-darker);
+    }
+  }
+
   &.tonal {
     background-color: var(--green-transparent);
     color: var(--green);
@@ -31,6 +44,19 @@
   
     &:active {
       background-color: var(--green-transparent-darker);
+    }
+
+    &.danger {
+      background-color: var(--red-transparent);
+      color: var(--red);
+  
+      &:hover {
+        background-color: var(--red-transparent-dark);
+      }
+    
+      &:active {
+        background-color: var(--red-transparent-darker);
+      }
     }
   }
 

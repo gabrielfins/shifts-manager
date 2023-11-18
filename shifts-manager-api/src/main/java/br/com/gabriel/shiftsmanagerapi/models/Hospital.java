@@ -2,6 +2,8 @@ package br.com.gabriel.shiftsmanagerapi.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "hospitais")
 public class Hospital {
@@ -9,8 +11,8 @@ public class Hospital {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne(mappedBy = "idHospital")
-    private Proposta proposta;
+    //@OneToMany(mappedBy = "hospital")
+    //private List<Proposta> propostas;
 
     private String razaoSocial;
 
@@ -141,4 +143,12 @@ public class Hospital {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    //public List<Proposta> getPropostas() {
+    //    return propostas;
+    //}
+
+    //public void setPropostas(List<Proposta> propostas) {
+    //    this.propostas = propostas;
+    //}
 }

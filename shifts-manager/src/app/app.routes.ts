@@ -12,6 +12,7 @@ import { HospitalCalendarComponent } from './pages/hospital/hospital-calendar/ho
 import { HospitalDashboardComponent } from './pages/hospital/hospital-dashboard/hospital-dashboard.component';
 import { HospitalLoginComponent } from './pages/hospital/hospital-login/hospital-login.component';
 import { HospitalRegisterComponent } from './pages/hospital/hospital-register/hospital-register.component';
+import { HospitalShiftCreateComponent } from './pages/hospital/hospital-shift-create/hospital-shift-create.component';
 
 export const routes: Routes = [
   {
@@ -79,9 +80,23 @@ export const routes: Routes = [
           {
             path: 'calendar',
             component: HospitalCalendarComponent,
+          },
+          {
+            path: 'shifts/create',
+            component: HospitalShiftCreateComponent
           }
         ]
       }
     ]
+  },
+  {
+    path: '',
+    redirectTo: '/doctor/dashboard',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    redirectTo: '/doctor/dashboard',
+    pathMatch: 'full',
   }
 ];

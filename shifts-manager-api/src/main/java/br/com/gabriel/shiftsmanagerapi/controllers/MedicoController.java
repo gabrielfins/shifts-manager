@@ -68,8 +68,8 @@ public class MedicoController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<String> delete(@PathVariable long id) {
+    public ResponseEntity<Boolean> delete(@PathVariable long id) {
         this.medicoService.delete(id);
-        return ResponseEntity.ok("Usuário removido com sucesso.");
+        return ResponseEntity.ok(true);
     }
 }

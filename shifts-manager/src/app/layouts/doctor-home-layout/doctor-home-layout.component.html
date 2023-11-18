@@ -7,7 +7,7 @@
     <a class="link" routerLink="/doctor/calendar" routerLinkActive="active">Agenda</a>
   </div>
   <div>
-    <button smg-button variant="tonal" type="button" routerLink="/doctor/login">
+    <button smg-button variant="tonal" type="button" (click)="doctorService.logout()">
       <smg-icon icon="logout" />
       Sair
     </button>

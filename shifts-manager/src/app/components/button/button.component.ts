@@ -12,4 +12,8 @@ export class ButtonComponent {
   @Input()
   @HostBinding('class')
   variant: 'filled' | 'tonal' = 'filled';
+
+  @Input()
+  @HostBinding('class.danger')
+  danger = false;
 }

@@ -9,13 +9,13 @@ public class Proposta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne
-    @JoinColumn(name = "idHospital")
-    private Hospital idHospital;
+    @ManyToOne
+    @JoinColumn(name = "hospital")
+    private Hospital hospital;
 
-    @OneToOne
-    @JoinColumn(name = "idMedico")
-    private Medico idMedico;
+    @ManyToOne
+    @JoinColumn(name = "medico")
+    private Medico medico;
 
     private String dataInicio;
 
@@ -25,9 +25,9 @@ public class Proposta {
 
     private String horaFim;
 
-    private Number duracao;
+    private int duracao;
 
-    private String especialidade;
+    private int especialidade;
 
     private float valorPlantao;
 
@@ -39,20 +39,20 @@ public class Proposta {
         this.id = id;
     }
 
-    public Hospital getIdHospital() {
-        return idHospital;
+    public Hospital getHospital() {
+        return hospital;
     }
 
-    public void setIdHospital(Hospital idHospital) {
-        this.idHospital = idHospital;
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
     }
 
-    public Medico getIdMedico() {
-        return idMedico;
+    public Medico getMedico() {
+        return medico;
     }
 
-    public void setIdMedico(Medico idMedico) {
-        this.idMedico = idMedico;
+    public void setMedico(Medico medico) {
+        this.medico = medico;
     }
 
     public String getDataInicio() {
@@ -71,19 +71,19 @@ public class Proposta {
         this.dataFim = dataFim;
     }
 
-    public Number getDuracao() {
+    public int getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(Number duracao) {
+    public void setDuracao(int duracao) {
         this.duracao = duracao;
     }
 
-    public String getEspecialidade() {
+    public int getEspecialidade() {
         return especialidade;
     }
 
-    public void setEspecialidade(String especialidade) {
+    public void setEspecialidade(int especialidade) {
         this.especialidade = especialidade;
     }
 
@@ -93,5 +93,21 @@ public class Proposta {
 
     public void setValorPlantao(float valorPlantao) {
         this.valorPlantao = valorPlantao;
+    }
+
+    public String getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public String getHoraFim() {
+        return horaFim;
+    }
+
+    public void setHoraFim(String horaFim) {
+        this.horaFim = horaFim;
     }
 }

@@ -2,12 +2,9 @@ package br.com.gabriel.shiftsmanagerapi.controllers;
 
 import br.com.gabriel.shiftsmanagerapi.dto.LoginDTO;
 import br.com.gabriel.shiftsmanagerapi.models.Hospital;
-import br.com.gabriel.shiftsmanagerapi.models.Medico;
-import br.com.gabriel.shiftsmanagerapi.repositories.HospitalRepository;
 import br.com.gabriel.shiftsmanagerapi.services.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -72,8 +69,8 @@ public class HospitalController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<String> delete(@PathVariable long id) {
+    public ResponseEntity<Boolean> delete(@PathVariable long id) {
         this.hospitalService.delete(id);
-        return ResponseEntity.ok("Usuário removido com sucesso.");
+        return ResponseEntity.ok(true);
     }
 }

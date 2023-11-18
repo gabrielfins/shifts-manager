@@ -1,7 +1,41 @@
 <div class="title">
   <h2>Propostas Ativas</h2>
-  <a smg-button variant="tonal" routerLink="/propositions/new">
+  <a smg-button variant="tonal" routerLink="/hospital/shifts/create">
     <smg-icon icon="add" />
     Nova
   </a>
 </div>
+<ng-container *ngIf="propositions$ | async as propostas">
+  <ng-container *ngIf="propostas.length !== 0">
+    <div class="propositions">
+      <ng-container *ngFor="let proposta of propostas">
+        <div class="proposition">
+          <div class="info">
+            <div class="info-content">
+              <smg-icon icon="location_on" [size]="16" />
+              <p>{{proposta.hospital.endereco}}, {{proposta.hospital.numero}} - {{proposta.hospital.bairro}}</p>
+            </div>
+            <div class="info-content">
+              <smg-icon icon="calendar_month" [size]="16" />
+              <p>{{proposta.dataInicio | mask: '00/00/0000'}} • {{proposta.horaInicio | mask: '00:00'}} às {{proposta.horaFim | mask: '00:00'}}</p>
+            </div>
+            <div class="info-content">
+              <smg-icon icon="schedule" [size]="16" />
+              <p>{{proposta.duracao}} horas</p>
+            </div>
+            <div class="info-content">
+              <smg-icon icon="payments" [size]="16" />
+              <p>{{proposta.valorPlantao | currency: 'BRL'}}</p>
+            </div>
+          </div>
+          <button smg-button variant="tonal" (click)="deleteProposition(proposta.id)" [danger]="true">Apagar Proposta</button>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="propostas.length === 0">
+    <div class="empty">
+      <p>Você ainda não criou nenhuma proposta.</p>
+    </div>
+  </ng-container>
+</ng-container>

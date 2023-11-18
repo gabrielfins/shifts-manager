@@ -1,0 +1,53 @@
+<main>
+  <div class="title">
+    <a smg-icon-button icon="arrow_back" routerLink="/hospital/dashboard"></a>
+    <h2>Criar Proposta</h2>
+  </div>
+  <form [formGroup]="shiftForm" (ngSubmit)="onSubmit()">
+    <div class="input-container row">
+      <div class="input-group">
+        <label for="startDate">Data de início</label>
+        <input type="text" id="startDate" formControlName="dataInicio" mask="00/00/0000" placeholder="00/00/0000">
+      </div>
+      <div class="input-group">
+        <label for="startTime">Hora de início</label>
+        <input type="text" id="startTime" formControlName="horaInicio" mask="00:00" placeholder="00:00">
+      </div>
+    </div>
+    <div class="input-container row">
+      <div class="input-group">
+        <label for="endData">Data do término</label>
+        <input type="text" id="endData" formControlName="dataFim" mask="00/00/0000" placeholder="00/00/0000">
+      </div>
+      <div class="input-group">
+        <label for="endTime">Hora do término</label>
+        <input type="text" id="endTime" formControlName="horaFim" mask="00:00" placeholder="00:00">
+      </div>
+    </div>
+    <div class="input-container row">
+      <div class="input-group">
+        <label for="duration">Duração</label>
+        <select id="duration" formControlName="duracao">
+          <option [value]="8">8 horas</option>
+          <option [value]="12">12 horas</option>
+          <option [value]="16">16 horas</option>
+          <option [value]="24">24 horas</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="specialty">Especialidade</label>
+        <select id="specialty" formControlName="especialidade">
+          <option [value]="0">Cardiologista</option>
+          <option [value]="1">Dermatologista</option>
+          <option [value]="2">Neurologista</option>
+          <option [value]="3">Oncologista</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="value">Valor</label>
+        <input type="number" id="value" formControlName="valorPlantao">
+      </div>
+    </div>
+    <button smg-button type="submit" [disabled]="shiftForm.invalid">Criar proposta</button>
+  </form>
+</main>

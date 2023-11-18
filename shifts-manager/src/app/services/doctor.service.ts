@@ -3,15 +3,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Medico } from '../models/medico.model';
 import { environment } from 'src/environments/environment.development';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorService {
   private readonly http = inject(HttpClient);
+  private readonly router = inject(Router);
   private readonly api = environment.apiUrl;
   
   doctor: Medico | undefined;
+
+  logout() {
+    this.doctor = undefined;
+    this.router.navigate(['/doctor/login']);
+  }
 
   post(doctor: Omit<Medico, 'id'>) {
     return this.http.post<Medico>(`${this.api}/medicos`, doctor);
