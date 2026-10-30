@@ -1,24 +1,23 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable, filter, map } from 'rxjs';
 import { Proposta } from 'src/app/models/proposta.model';
 import { PropositionService } from 'src/app/services/proposition.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { IconComponent } from 'src/app/components/icon/icon.component';
-import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+import { NgxMaskPipe } from 'ngx-mask';
 import { ButtonComponent } from 'src/app/components/button/button.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    CommonModule,
-    IconComponent,
-    NgxMaskDirective,
-    NgxMaskPipe,
-    ButtonComponent
-  ],
-  templateUrl: './doctor-calendar.component.html',
-  styleUrls: ['./doctor-calendar.component.scss']
+    imports: [
+        CommonModule,
+        IconComponent,
+        NgxMaskPipe,
+        ButtonComponent
+    ],
+    templateUrl: './doctor-calendar.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrls: ['./doctor-calendar.component.scss']
 })
 export class DoctorCalendarComponent {
   private readonly propositionService = inject(PropositionService);

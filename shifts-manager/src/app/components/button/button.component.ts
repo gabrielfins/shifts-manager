@@ -1,12 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { Component, HostBinding, Input } from '@angular/core';
+
+import { Component, HostBinding, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule],
-  selector: '[smg-button]',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+    imports: [],
+    selector: '[smg-button]',
+    templateUrl: './button.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
   @Input()

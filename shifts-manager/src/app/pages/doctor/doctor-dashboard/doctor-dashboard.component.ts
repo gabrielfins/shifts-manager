@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { NgxMaskPipe } from 'ngx-mask';
 import { Observable, map } from 'rxjs';
 import { ButtonComponent } from 'src/app/components/button/button.component';
 import { IconComponent } from 'src/app/components/icon/icon.component';
@@ -9,16 +9,15 @@ import { DoctorService } from 'src/app/services/doctor.service';
 import { PropositionService } from 'src/app/services/proposition.service';
 
 @Component({
-  standalone: true,
-  imports: [
-    CommonModule,
-    IconComponent,
-    NgxMaskDirective,
-    NgxMaskPipe,
-    ButtonComponent
-  ],
-  templateUrl: './doctor-dashboard.component.html',
-  styleUrls: ['./doctor-dashboard.component.scss']
+    imports: [
+        CommonModule,
+        IconComponent,
+        NgxMaskPipe,
+        ButtonComponent
+    ],
+    templateUrl: './doctor-dashboard.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrls: ['./doctor-dashboard.component.scss']
 })
 export class DoctorDashboardComponent {
   private readonly propositionService = inject(PropositionService);
