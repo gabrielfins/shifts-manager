@@ -1,23 +1,20 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { ButtonComponent } from 'src/app/components/button/button.component';
-import { IconButtonComponent } from 'src/app/components/icon-button/icon-button.component';
 import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
-  standalone: true,
-  imports: [
-    CommonModule,
+    imports: [
     ReactiveFormsModule,
     RouterLink,
     ButtonComponent,
-    IconButtonComponent
-  ],
-  templateUrl: './doctor-login.component.html',
-  styleUrls: ['./doctor-login.component.scss']
+],
+    templateUrl: './doctor-login.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrls: ['./doctor-login.component.scss']
 })
 export class DoctorLoginComponent {
   private readonly fb = inject(FormBuilder);

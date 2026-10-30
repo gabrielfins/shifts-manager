@@ -1,8 +1,8 @@
 <h2>Propostas de Plantão</h2>
-<ng-container *ngIf="propositions$ | async as propostas">
-  <ng-container *ngIf="propostas.length !== 0">
+@if (propositions$ | async; as propostas) {
+  @if (propostas.length !== 0) {
     <div class="propositions">
-      <ng-container *ngFor="let proposta of propostas">
+      @for (proposta of propostas; track proposta) {
         <div class="proposition">
           <div class="header">
             <h3>{{proposta.hospital.nomeFantasia}}</h3>
@@ -28,12 +28,12 @@
           </div>
           <button smg-button variant="tonal" (click)="acceptProposition(proposta)">Aceitar Plantão</button>
         </div>
-      </ng-container>
+      }
     </div>
-  </ng-container>
-  <ng-container *ngIf="propostas.length === 0">
+  }
+  @if (propostas.length === 0) {
     <div class="empty">
       <p>Não há propostas de plantão para você no momento.</p>
     </div>
-  </ng-container>
-</ng-container>
+  }
+}

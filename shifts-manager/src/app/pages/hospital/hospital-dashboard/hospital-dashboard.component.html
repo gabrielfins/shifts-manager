@@ -5,10 +5,10 @@
     Nova
   </a>
 </div>
-<ng-container *ngIf="propositions$ | async as propostas">
-  <ng-container *ngIf="propostas.length !== 0">
+@if (propositions$ | async; as propostas) {
+  @if (propostas.length !== 0) {
     <div class="propositions">
-      <ng-container *ngFor="let proposta of propostas">
+      @for (proposta of propostas; track proposta) {
         <div class="proposition">
           <div class="info">
             <div class="info-content">
@@ -30,12 +30,12 @@
           </div>
           <button smg-button variant="tonal" (click)="deleteProposition(proposta.id)" [danger]="true">Apagar Proposta</button>
         </div>
-      </ng-container>
+      }
     </div>
-  </ng-container>
-  <ng-container *ngIf="propostas.length === 0">
+  }
+  @if (propostas.length === 0) {
     <div class="empty">
       <p>Você ainda não criou nenhuma proposta.</p>
     </div>
-  </ng-container>
-</ng-container>
+  }
+}
